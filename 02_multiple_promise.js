@@ -23,4 +23,17 @@ cleanRoom().then(function(result){
 }).then(function(result){
 	console.log('finished ' + result);
 })
+ 
+/***
+ * give a result when all the promises is resolved
+ */
+Promise.all([cleanRoom, removeGarbage, winIcecream]).then(()=>{
+  console.log('all the process is finished...');
+})
 
+/***
+ * give a result when one of the  promise is complete
+ */
+Promise.race([cleanRoom, removeGarbage, winIcecream]).then(()=>{
+  console.log('one of the process is finished...');
+})
